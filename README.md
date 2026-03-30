@@ -6,7 +6,7 @@ Automated backup for Final Cut Pro backup bundles.
 
 ---
 
-FCPBackupManager watches your Final Cut Pro backup source folder, compresses new `.fcpbundle` backups into zip files, and copies them to one or more destinations such as a local folder, external drive, NAS, SMB share, or other mounted volume.
+FCP Backup Manager watches your Final Cut Pro backup source folder, compresses new `.fcpbundle` backups into zip files, and copies them to one or more destinations such as a local folder, external drive, NAS, SMB share, or other mounted volume.
 
 ## What It Does
 
@@ -18,12 +18,11 @@ FCPBackupManager watches your Final Cut Pro backup source folder, compresses new
 
 ## Quick Start
 
-1. Build and run `FCPBackupManager.xcodeproj` in Xcode, or launch the signed app.
-2. Open the menu bar app and choose **Settings…**.
-3. In the **Source** area, confirm the source path and add any optional `.fcpbundle` keyword filters.
-4. In the **Destinations** area, add one or more destinations.
-5. Click **Test Destinations** to confirm access and writable status.
-6. Click **Back Up Now**.
+1. Open the menu bar app and choose **Settings…**.
+2. In the **Source** area, confirm the source path and add any optional `.fcpbundle` keyword filters.
+3. In the **Destinations** area, add one or more destinations.
+4. Click **Test Destinations** to confirm access and writable status.
+5. Click **Back Up Now**.
 6. Use **View Logs…** in the menu bar or Settings if you need troubleshooting details.
 
 ## How It Works
@@ -32,7 +31,7 @@ FCPBackupManager watches your Final Cut Pro backup source folder, compresses new
 1. SCAN      Discover .fcpbundle directories under the source path
 2. DEDUP     Skip bundles already recorded for each destination
 3. ZIP       Create a per-bundle zip archive with ditto
-4. COPY      Write the zip into destination/FCPBackupManager/<hostname>/
+4. COPY      Write the zip into destination/FCP Backup Manager/<hostname>/
 5. LOG       Write destination logs, session logs, and a local app diagnostic log
 6. CLEANUP   Remove temporary staging files
 ```
@@ -52,7 +51,7 @@ Project Filters in Settings, Setup JSON, and MDM now work as bundle-name filters
 
 ```text
 /Volumes/MyDrive/
-└── FCPBackupManager/
+└── FCP Backup Manager/
     └── edit-suite-03/
         ├── ProjectA_20250623_1929_PDT.zip
         ├── ProjectB_20250710_0815_PDT.zip
@@ -64,11 +63,11 @@ The stable `backup.log` is the latest destination log. The timestamped log provi
 
 ## Logs
 
-FCPBackupManager writes logs in three places:
+FCP Backup Manager writes logs in three places:
 
-- Destination run logs at `destination/FCPBackupManager/<hostname>/`
-- Session logs at `~/Library/Application Support/FCPBackupManager/Logs/`
-- App diagnostic log at `~/Library/Application Support/FCPBackupManager/Logs/app-diagnostic.log`, plus daily rotated `app-diagnostic-YYYY-MM-DD.log` files
+- Destination run logs at `destination/FCP Backup Manager/<hostname>/`
+- Session logs at `~/Library/Application Support/FCP Backup Manager/Logs/`
+- App diagnostic log at `~/Library/Application Support/FCP Backup Manager/Logs/app-diagnostic.log`, plus daily rotated `app-diagnostic-YYYY-MM-DD.log` files
 
 These are especially useful for network-volume troubleshooting because they show destination filtering, bundle-filter matches, copy attempts, fallback writes, and per-run results.
 
@@ -92,16 +91,6 @@ Suggested placement:
 - Menu bar popup after initial setup, including the visible version/build line
 - Settings window with sidebar navigation for Source, Destinations, and Import / Export
 
-## Building from Source
-
-```bash
-git clone <repo-url>
-cd FCPBackupManager
-open FCPBackupManager.xcodeproj
-```
-
-Requires Xcode 16+ and macOS 14 or later.
-
 ## Documentation
 
 - [User Guide](docs/USER-GUIDE.md)
@@ -111,4 +100,4 @@ Requires Xcode 16+ and macOS 14 or later.
 
 ## License
 
-<!-- TODO: Add license -->
+Apache 2.0
