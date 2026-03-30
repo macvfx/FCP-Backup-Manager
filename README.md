@@ -95,7 +95,6 @@ Suggested placement:
 
 - [User Guide](docs/USER-GUIDE.md)
 - [MDM Admin Guide](docs/MDM-ADMIN-GUIDE.md)
-- [Implementation Plan](docs/IMPLEMENTATION-PLAN.md)
 - [Archive Format Comparison](docs/ARCHIVE-FORMAT-COMPARISON.md)
 
 ## License
