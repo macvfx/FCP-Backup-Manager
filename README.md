@@ -82,20 +82,15 @@ Settings resolve in this order:
 | 3 | Imported JSON | Same behavior as Setup JSON |
 | 4 | User Settings UI | Manual control for non-managed settings |
 
-See [docs/MDM-ADMIN-GUIDE.md](docs/MDM-ADMIN-GUIDE.md) for managed preference details.
+See [MDM-ADMIN-GUIDE.md](MDM-ADMIN-GUIDE.md) for managed preference details.
 
-## Screenshots
-
-Suggested placement:
-
-- Menu bar popup after initial setup, including the visible version/build line
-- Settings window with sidebar navigation for Source, Destinations, and Import / Export
+Example JSON and mobileconfig profile in Config folder.
 
 ## Documentation
 
-- [User Guide](docs/USER-GUIDE.md)
-- [MDM Admin Guide](docs/MDM-ADMIN-GUIDE.md)
-- [Archive Format Comparison](docs/ARCHIVE-FORMAT-COMPARISON.md)
+- [User Guide](USER-GUIDE.md)
+- [MDM Admin Guide](MDM-ADMIN-GUIDE.md)
+- [Archive Format Comparison](ARCHIVE-FORMAT-COMPARISON.md)
 
 ## License
 
