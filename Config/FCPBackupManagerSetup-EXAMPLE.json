@@ -1,0 +1,24 @@
+{
+  "configDate": "20260320",
+  "schedule": "1d",
+  "sourcePath": "~/Movies/Final Cut Backups.localized",
+  "launchAtLogin": true,
+  "projectFilters": [
+    "VIP",
+    "ClientA",
+    "ClientB" 
+  ],
+  "retentionEnabled": true,
+  "retentionKeepLastN": 2,
+  "retentionDeleteOlderThanDays": 90,
+  "destinations": [
+    {
+      "alias": "Cloud",
+      "path": "/Volumes/Cloud/FCP/ProjectBackups"
+    },
+    {
+      "alias": "NAS",
+      "path": "/Volumes/NAS/FCP/ProjectBackups"
+    }
+  ]
+}

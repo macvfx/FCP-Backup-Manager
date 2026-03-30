@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadType</key>
+			<string>com.matx.FCPBackupManager</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>PayloadIdentifier</key>
+			<string>com.matx.FCPBackupManager.settings</string>
+			<key>PayloadUUID</key>
+			<string>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</string>
+			<key>PayloadDisplayName</key>
+			<string>FCPBackupManager Settings</string>
+
+			<key>ScheduleInterval</key>
+			<string>1d</string>
+
+			<key>SourcePath</key>
+			<string>~/Movies/Final Cut Backups.localized</string>
+
+			<key>LaunchAtLogin</key>
+			<true/>
+
+			<key>BackupDestinations</key>
+			<array>
+				<dict>
+					<key>alias</key>
+					<string>Studio SAN</string>
+					<key>path</key>
+					<string>/Volumes/StudioSAN/FCPBackups</string>
+					<key>enabled</key>
+					<true/>
+				</dict>
+			</array>
+
+			<key>ProjectFilters</key>
+			<array>
+				<string>VIP</string>
+				<string>ClientA</string>
+				<string>ClientB</string>
+				<string>Internal</string>
+				<string>Test</string>
+			</array>
+
+			<!-- Allow users/JSON setup to add destinations alongside MDM-managed ones -->
+			<!-- Set to false (default) to lock destinations to only MDM-provided ones -->
+			<key>AllowAdditionalDestinations</key>
+			<true/>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>FCPBackupManager Configuration</string>
+	<key>PayloadIdentifier</key>
+	<string>com.matx.FCPBackupManager.profile</string>
+	<key>PayloadOrganization</key>
+	<string>matx</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>FEDCBA98-7654-3210-FEDC-BA9876543210</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
