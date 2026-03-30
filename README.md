@@ -16,6 +16,8 @@ FCP Backup Manager watches your Final Cut Pro backup source folder, compresses n
 - Writes destination logs plus local troubleshooting logs
 - Supports manual runs, scheduled runs, retention cleanup, bundle-name filters, Setup JSON import, and MDM-managed deployment
 
+**TEST** with test data before using in production.
+
 ## Quick Start
 
 1. Open the menu bar app and choose **Settings…**.
