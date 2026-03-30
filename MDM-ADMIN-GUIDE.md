@@ -171,13 +171,13 @@ To push multiple destinations, add more `<dict>` entries inside the `BackupDesti
 
 ## Deployment via MDM Solutions
 
-### Jamf Pro
+### SimpleMDM
 
-1. In Jamf Pro, navigate to **Computers > Configuration Profiles > New**.
-2. Add a **Custom Settings** payload.
-3. Set the preference domain to `com.matx.FCPBackupManager`.
+1. In SimpleMDM, navigate to **Configs > Profiles **.
+2. Click "Create Profile" and choose a **Custom Configuration Profile** payload.
+3. Choose a name and drescription.
 4. Upload the `.mobileconfig` file or enter the keys manually.
-5. Scope the profile to the appropriate computer groups.
+5. Assign the profile to the appropriate computer groups.
 
 ### Mosyle
 
@@ -185,13 +185,6 @@ To push multiple destinations, add more `<dict>` entries inside the `BackupDesti
 2. Choose **Custom** profile type.
 3. Upload the `.mobileconfig` file.
 4. Assign to the target device group.
-
-### Munki
-
-1. Place the `.mobileconfig` in your Munki repo.
-2. Reference it in a pkginfo file or use `managedinstalls` with the profile.
-3. Alternatively, use Munki's managed preferences support to push individual keys to the `com.matx.FCPBackupManager` domain.
-
 ---
 
 ## Verifying Deployment
