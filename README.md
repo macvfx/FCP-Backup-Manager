@@ -1,4 +1,4 @@
-# FCPBackupManager
+# FCP Backup Manager
 
 Automated backup for Final Cut Pro backup bundles.
 
