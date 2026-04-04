@@ -2,6 +2,7 @@
 
 Reference for IT administrators deploying FCPBackupManager via managed preferences.
 
+0.8.0 Updated keys
 ---
 
 ## Preference Domain
@@ -23,6 +24,11 @@ com.matx.FCPBackupManager
 | `RetentionEnabled` | Boolean | `false` | Enable automatic cleanup of old backup zips at destinations |
 | `RetentionKeepLastN` | Integer | `10` | Keep only the last N backups per project. Ignored if RetentionEnabled is false. |
 | `RetentionDeleteOlderThanDays` | Integer | `90` | Delete backups older than N days. Ignored if RetentionEnabled is false. |
+| `PreferredTimeEnabled` | Boolean | `true` | Enable preferred-time scheduling. When enabled, backups run at the specified time instead of on a fixed interval. |
+| `PreferredTime` | String | `"02:30"` | Preferred time of day for backups in `HH:mm` format (24-hour). Ignored if PreferredTimeEnabled is false. |
+| `QuietHoursEnabled` | Boolean | `true` | Enable quiet hours. During quiet hours, scheduled backups are deferred until the window ends. |
+| `QuietHoursStart` | String | `"22:00"` | Start of the quiet window in `HH:mm` format (24-hour). Ignored if QuietHoursEnabled is false. |
+| `QuietHoursEnd` | String | `"07:00"` | End of the quiet window in `HH:mm` format (24-hour). Ignored if QuietHoursEnabled is false. |
 
 ### BackupDestinations Format
 
@@ -120,6 +126,23 @@ Save the following as a `.mobileconfig` file and deploy via your MDM solution. R
 				<string>archive</string>
 			</array>
 
+			<!-- Preferred time: run backups at 02:30 each day -->
+			<key>PreferredTimeEnabled</key>
+			<true/>
+
+			<key>PreferredTime</key>
+			<string>02:30</string>
+
+			<!-- Quiet hours: defer backups between 22:00 and 07:00 -->
+			<key>QuietHoursEnabled</key>
+			<true/>
+
+			<key>QuietHoursStart</key>
+			<string>22:00</string>
+
+			<key>QuietHoursEnd</key>
+			<string>07:00</string>
+
 			<!-- Optional: allow users/JSON to add destinations alongside MDM ones -->
 			<key>AllowAdditionalDestinations</key>
 			<true/>
@@ -185,6 +208,15 @@ To push multiple destinations, add more `<dict>` entries inside the `BackupDesti
 2. Choose **Custom** profile type.
 3. Upload the `.mobileconfig` file.
 4. Assign to the target device group.
+
+### Jamf Pro
+
+1. In Jamf Pro, navigate to **Computers > Configuration Profiles > New**.
+2. Add a **Custom Settings** payload.
+3. Set the preference domain to `com.matx.FCPBackupManager`.
+4. Upload the `.mobileconfig` file or enter the keys manually.
+5. Scope the profile to the appropriate computer groups.
+
 ---
 
 ## Verifying Deployment
@@ -224,3 +256,8 @@ To remove management of a specific key, remove that key from the profile payload
 | Retention Policy | Yes (locked) | Yes (auto-applied) | Yes |
 | Retention Keep Last N | Yes (locked) | Yes (auto-applied) | Yes |
 | Retention Delete Older Than Days | Yes (locked) | Yes (auto-applied) | Yes |
+| Preferred Time Enabled | Yes (locked) | Yes (auto-applied) | Yes |
+| Preferred Time | Yes (locked) | Yes (auto-applied) | Yes |
+| Quiet Hours Enabled | Yes (locked) | Yes (auto-applied) | Yes |
+| Quiet Hours Start | Yes (locked) | Yes (auto-applied) | Yes |
+| Quiet Hours End | Yes (locked) | Yes (auto-applied) | Yes |
