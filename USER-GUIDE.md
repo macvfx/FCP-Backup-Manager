@@ -1,12 +1,12 @@
-# FCPBackupManager User Guide
+# FCP Backup Manager User Guide
 
-FCPBackupManager is a menu bar app for backing up Final Cut Pro backup bundles to one or more destinations such as local folders, external drives, NAS shares, SMB shares, or other mounted volumes.
+FCP Backup Manager is a menu bar app for backing up Final Cut Pro backup bundles to one or more destinations such as local folders, external drives, NAS shares, SMB shares, or other mounted volumes.
 
-This guide reflects `v0.7.0` / `build 1`.
+This guide reflects `v0.8.0` / `build 1`.
 
 ## Overview
 
-FCPBackupManager:
+FCP Backup Manager:
 
 - scans your Final Cut backup source folder
 - compresses each new `.fcpbundle` into a zip archive
@@ -32,7 +32,7 @@ Suggested placement:
 
 ### 1. Launch the App
 
-After launch, look for the FCPBackupManager icon in the menu bar.
+After launch, look for the FCP Backup Manager icon in the menu bar.
 
 The menu shows:
 
@@ -53,8 +53,9 @@ Use either:
 
 The Settings window uses a sidebar with:
 
-- **Source** for source path, bundle filters, schedule, and history
+- **Source** for source path, bundle filters, and history
 - **Destinations** for destinations, testing, manual backup, and retention
+- **Schedule** for backup interval, preferred time, quiet hours, and launch at login
 - **Import / Export** for setup-file import and config export
 
 ### 3. Add Destinations
@@ -122,15 +123,29 @@ What you should expect:
 
 ### Scheduled Backup Workflow
 
-Scheduled backups are active in the current app.
+Scheduled backups run automatically while the app is running. The schedule starts at app launch — no need to open the menu bar first.
 
-You can choose:
+You can choose an interval:
 
 - Every Hour
 - Every Day
 - Every Week
 
-The schedule timer runs while the app is running. If you want automatic scheduled backups after login, enable **Launch at Login** in Settings.
+If you want automatic scheduled backups after login, enable **Launch at Login** in Settings.
+
+#### Preferred Time
+
+For daily or weekly schedules, you can optionally set a specific time of day for backups to run (e.g., 6:00 PM). Enable **Run at a specific time** in Settings and pick the time. This replaces the rolling interval with a fixed daily or weekly time.
+
+#### Quiet Hours
+
+Enable **Quiet hours** to block scheduled backups during a time window (e.g., 9:00 AM to 5:00 PM). This is useful when you don't want backup I/O during editing sessions. If a backup would fire during quiet hours, it defers to when the window ends.
+
+Overnight windows are supported (e.g., 10:00 PM to 6:00 AM).
+
+#### Overdue Catch-Up
+
+If a scheduled backup is missed (the app was quit, or the Mac was asleep), the app runs it shortly after launch or wake instead of waiting for the next full interval.
 
 ### Example Workflow: One Local Folder and Two Network Shares
 
@@ -188,7 +203,7 @@ Example:
 
 ## Dedup and Manifest Behavior
 
-FCPBackupManager tracks every completed copy in:
+FCP Backup Manager tracks every completed copy in:
 
 ```text
 ~/Library/Application Support/FCPBackupManager/manifest.json
@@ -222,7 +237,7 @@ Use this when:
 
 ## Logs and Troubleshooting Files
 
-FCPBackupManager writes three useful log outputs.
+FCP Backup Manager writes three useful log outputs.
 
 ### 1. Destination Logs
 
@@ -303,13 +318,20 @@ If a discovered `.fcpbundle` name contains one of these keywords, that bundle is
 
 ### Schedule
 
-Available schedules:
+Available intervals:
 
 | Interval | Meaning |
 |----------|---------|
 | Every Hour | Run once per hour while the app is running |
 | Every Day | Run once per day while the app is running |
 | Every Week | Run once per week while the app is running |
+
+Optional schedule settings:
+
+| Setting | Effect |
+|---------|--------|
+| Run at a specific time | For daily/weekly, fire at a fixed time of day instead of a rolling interval |
+| Quiet hours | Suppress scheduled backups during a time window (e.g., 9 AM to 5 PM) |
 
 ### Launch at Login
 
@@ -368,7 +390,7 @@ Example:
 
 ```json
 {
-  "configDate": "20260320",
+  "configDate": "20260403",
   "schedule": "1d",
   "sourcePath": "~/Movies/Final Cut Backups.localized",
   "launchAtLogin": true,
@@ -376,6 +398,11 @@ Example:
   "retentionEnabled": true,
   "retentionKeepLastN": 10,
   "retentionDeleteOlderThanDays": 90,
+  "preferredTimeEnabled": true,
+  "preferredTime": "18:00",
+  "quietHoursEnabled": true,
+  "quietHoursStart": "09:00",
+  "quietHoursEnd": "17:00",
   "destinations": [
     {
       "alias": "Primary NAS",
@@ -395,7 +422,7 @@ Workflow:
 
 ## MDM Workflow
 
-FCPBackupManager supports MDM-managed preferences under the domain:
+FCP Backup Manager supports MDM-managed preferences under the domain:
 
 ```text
 com.matx.FCPBackupManager
@@ -461,6 +488,8 @@ Those settings are controlled by managed preferences and must be changed through
 | Setting | JSON Setup | User Settings UI |
 |---------|------------|------------------|
 | Schedule Interval | Yes | Yes |
+| Preferred Time | Yes | Yes |
+| Quiet Hours | Yes | Yes |
 | Source Path | Yes | Yes |
 | Launch at Login | Yes | Yes |
 | Project Filters | Yes | Yes |
