@@ -16,18 +16,6 @@ FCP Backup Manager:
 
 The app lives in the macOS menu bar and does not appear in the Dock.
 
-## Where to Put Screenshots
-
-Suggested screenshots for this guide:
-
-1. Menu bar popup with destination status and Back Up Now
-2. Settings window showing the sidebar navigation and one of the main configuration areas
-
-Suggested placement:
-
-- Add a menu bar screenshot below **Daily Use**
-- Add a Settings screenshot below **Initial Setup**
-
 ## Initial Setup
 
 ### 1. Launch the App
