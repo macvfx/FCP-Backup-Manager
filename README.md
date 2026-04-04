@@ -2,7 +2,7 @@
 
 Automated backup for Final Cut Pro backup bundles.
 
-`v0.7.0` · `build 1` · `macOS 14+` · `SwiftUI` · `Menu Bar Utility`
+`v0.8.0` · `build 1` · `macOS 14+` · `SwiftUI` · `Menu Bar Utility`
 
 ---
 
@@ -14,9 +14,7 @@ FCP Backup Manager watches your Final Cut Pro backup source folder, compresses n
 - Compresses each bundle with `ditto` to preserve macOS metadata
 - Copies each bundle once per destination using manifest-based dedup
 - Writes destination logs plus local troubleshooting logs
-- Supports manual runs, scheduled runs, retention cleanup, bundle-name filters, Setup JSON import, and MDM-managed deployment
-
-**TEST** with test data before using in production.
+- Supports manual runs, scheduled runs with optional preferred time and quiet hours, retention cleanup, bundle-name filters, Setup JSON import, and MDM-managed deployment
 
 ## Quick Start
 
@@ -33,7 +31,7 @@ FCP Backup Manager watches your Final Cut Pro backup source folder, compresses n
 1. SCAN      Discover .fcpbundle directories under the source path
 2. DEDUP     Skip bundles already recorded for each destination
 3. ZIP       Create a per-bundle zip archive with ditto
-4. COPY      Write the zip into destination/FCP Backup Manager/<hostname>/
+4. COPY      Write the zip into destination/FCPBackupManager/<hostname>/
 5. LOG       Write destination logs, session logs, and a local app diagnostic log
 6. CLEANUP   Remove temporary staging files
 ```
@@ -53,7 +51,7 @@ Project Filters in Settings, Setup JSON, and MDM now work as bundle-name filters
 
 ```text
 /Volumes/MyDrive/
-└── FCP Backup Manager/
+└── FCPBackupManager/
     └── edit-suite-03/
         ├── ProjectA_20250623_1929_PDT.zip
         ├── ProjectB_20250710_0815_PDT.zip
@@ -67,9 +65,9 @@ The stable `backup.log` is the latest destination log. The timestamped log provi
 
 FCP Backup Manager writes logs in three places:
 
-- Destination run logs at `destination/FCP Backup Manager/<hostname>/`
-- Session logs at `~/Library/Application Support/FCP Backup Manager/Logs/`
-- App diagnostic log at `~/Library/Application Support/FCP Backup Manager/Logs/app-diagnostic.log`, plus daily rotated `app-diagnostic-YYYY-MM-DD.log` files
+- Destination run logs at `destination/FCPBackupManager/<hostname>/`
+- Session logs at `~/Library/Application Support/FCPBackupManager/Logs/`
+- App diagnostic log at `~/Library/Application Support/FCPBackupManager/Logs/app-diagnostic.log`, plus daily rotated `app-diagnostic-YYYY-MM-DD.log` files
 
 These are especially useful for network-volume troubleshooting because they show destination filtering, bundle-filter matches, copy attempts, fallback writes, and per-run results.
 
@@ -85,8 +83,6 @@ Settings resolve in this order:
 | 4 | User Settings UI | Manual control for non-managed settings |
 
 See [MDM-ADMIN-GUIDE.md](MDM-ADMIN-GUIDE.md) for managed preference details.
-
-Example JSON and mobileconfig profile in Config folder.
 
 ## Documentation
 
