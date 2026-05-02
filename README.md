@@ -2,7 +2,16 @@
 
 Automated backup for Final Cut Pro backup bundles.
 
-`v0.8.0` · `build 1` · `macOS 14+` · `SwiftUI` · `Menu Bar Utility`
+`v0.8.1` · `build 1` · `macOS 14+` · `SwiftUI` · `Menu Bar Utility`
+
+**Version History**
+
+**v0.8.1**: add Check for Updates to menu bar dropdown
+
+- Added GitHubUpdateChecker package (shared code between all my apps)
+- Added Check for Updates… button to menu bar dropdown
+- Silent launch check every 24 hours via ensureScheduleStarted()
+- Bump version to 0.8.1 (build 1)
 
 ---
 
