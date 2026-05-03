@@ -2,9 +2,11 @@
 
 Automated backup for Final Cut Pro backup bundles.
 
-`v0.8.1` · `build 1` · `macOS 14+` · `SwiftUI` · `Menu Bar Utility`
+`v0.9.0` · `build 1` · `macOS 14+` · `SwiftUI` · `Menu Bar Utility`
 
 **Version History**
+
+**v0.9.0**: redesign menu bar panel with colour-coded cards, status banner, and summary pills
 
 **v0.8.1**: add Check for Updates to menu bar dropdown
 
