@@ -6,6 +6,8 @@ Automated backup for Final Cut Pro backup bundles.
 
 **Version History**
 
+**v0.9.1**: Settings front focus fixed
+
 **v0.9.0**: redesign menu bar panel with colour-coded cards, status banner, and summary pills
 
 **v0.8.1**: add Check for Updates to menu bar dropdown
