@@ -106,3 +106,9 @@ See [MDM-ADMIN-GUIDE.md](MDM-ADMIN-GUIDE.md) for managed preference details.
 ## License
 
 Apache 2.0
+
+## License
+
+Free to use for your own business or work, including on client jobs. You may not sell,
+redistribute or sublicense the software. The terms are the
+[PolyForm Internal Use License 1.0.0](LICENSE). Copies obtained earlier under Apache-2.0 keep that license.
